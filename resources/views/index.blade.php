@@ -1,29 +1,18 @@
 @extends('layouts.app')
 
-<div class="my-4">
-    <h4 class="text-center">Listado de usuarios</h4>
-</div>
-<div class="row flex">
-    <div class="col-6">
-        <div class="my-4">
-            <a class="btn btn-primary" href="{{route('usuarios.create')}}">Agregar</a>
-            <a class="btn btn-primary my-2" href="{{route('menu')}}">Regresar</a>
-        </div>
+<div class="container">
+    <div class="my-4">
+        <h4 class="text-center">Listado de usuarios</h4>
     </div>
-
-    <div class="col-6">
-        <div class="my-4 ">
-            <form class="d-flex" role="search">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+    <div class="row flex">
+        <div class="col-6">
+            <div class="my-4">
+                <a class="btn btn-primary ml-2" href="{{route('usuarios.create')}}">Agregar</a>
+                <a class="btn btn-primary my-2" href="{{route('menu')}}">Regresar</a>
+            </div>
         </div>
     </div>
 </div>
-
-
-
-
 
 <div class="container bg-light">
     <table class="table bg-light flex">
@@ -37,8 +26,8 @@
                 <th scope="col">Direccion</th>
                 <th scope="col">Fecha creación</th>
                 <th scope="col">Ultima actualización</th>
-                <th></th>
-                <th></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>

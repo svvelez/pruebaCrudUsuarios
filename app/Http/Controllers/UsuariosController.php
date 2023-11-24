@@ -11,9 +11,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UsuariosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $usuarios = Usuarios::all();
@@ -41,12 +39,12 @@ class UsuariosController extends Controller
     {
         $usuarioValidate = new Usuarios();
         $errores = $usuarioValidate->validarDatos($request->all());
-    
+
         if (!empty($errores)) {
-            // Mostrar mensajes de error en SweetAlert
+
             return response()->json(['success' => false, 'errores' => $errores]);
         }
-    
+
         try {
             $usuario = Usuarios::create([
                 'nombre' => $request->nombre,
@@ -58,24 +56,20 @@ class UsuariosController extends Controller
                 'sexo' => $request->sexo,
                 'direccion' => $request->direccion,
             ]);
-    
+
             return response()->json(['success' => true, 'mensaje' => 'Usuario registrado correctamente']);
         } catch (\Exception $e) {
             return response()->json(['success' => false, 'mensaje' => 'Error al registrar el usuario']);
         }
-
-
-
     }
 
 
     public function show(string $id)
     {
-        //return view('usuarios.show', compact('id'));
     }
 
 
-    public function edit( $id)
+    public function edit($id)
     {
         $usuario = Usuarios::findOrFail($id);
         $usuarios = Usuarios::all();
@@ -86,9 +80,9 @@ class UsuariosController extends Controller
 
     public function update(Request $request,  $id)
     {
-         $usuarioValidate = new Usuarios();
+        $usuarioValidate = new Usuarios();
         $validator = validator()->make($request->all(), $usuarioValidate->rules, $usuarioValidate->messages);
- 
+
         if ($validator->fails()) {
             return response()->json(['success' => 'false', 'mensaje' => $validator->errors()->first()]);
         }

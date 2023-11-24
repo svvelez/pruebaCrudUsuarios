@@ -78,15 +78,15 @@
                 dataType: 'json',
                 success: function(data) {
                     if (data.success == 'true') {
-                        
-                        Swal.fire(" ¡Usuario Actualizado! ",  data.mensaje , "success").then(() => {
+
+                        Swal.fire(" ¡Usuario Actualizado! ", data.mensaje, "success").then(() => {
                             window.location.href = "{{ route('usuarios.index') }}"
                         });
 
                     } else {
                         Swal.fire(" Usuario no registrado! " + data.mensaje,
                             "Complete toda la información y valide los datos", "error");
-                    } 
+                    }
                 },
                 error: function(error) {
                     console.log(error.responseJSON.message);

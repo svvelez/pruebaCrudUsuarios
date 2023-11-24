@@ -61,7 +61,7 @@
             <button type="submit" id="enviar" class="my-3 w-full btn btn-info p-2 font-semibold rounded text-black hover:bg-600 ">
                 Guardar
             </button>
-                <button class="btn btn-primary"><a class="btn btn-primary" href="{{route('menu')}}">Regresar</a></button>
+                <a class="btn btn-primary" href="{{route('menu')}}">Regresar</a>
             </div>
 
         </form>
@@ -103,7 +103,7 @@
                             window.location.href = "{{ route('usuarios.index') }}";
                         });
                     } else {
-                        // Mostrar mensajes de error de validación en SweetAlert
+                        
                         let errores = Object.values(data.errores).join('<br>');
                         Swal.fire("¡Error al Registrar Usuario!", errores, "error");
                     }
