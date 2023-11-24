@@ -51,7 +51,7 @@ class UsuariosController extends Controller
             $usuario = Usuarios::create([
                 'nombre' => $request->nombre,
                 'apellido' => $request->apellido,
-                'usuario' => $request->usuario,
+                'usuario' => hash::make(trim($request->usuario)),
                 'email' => $request->email,
                 'password' => hash::make(trim($request->password)),
                 'edad' => $request->edad,
